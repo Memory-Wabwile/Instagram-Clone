@@ -15,3 +15,7 @@ def landing_page(request):
 def details(request):
     message = 'The details page'
     return render(request ,'details.html' , {'message': message})
+
+def profile(request):
+    message = 'The profile page'
+    return render(request ,'profile.html' , {'message': message})
