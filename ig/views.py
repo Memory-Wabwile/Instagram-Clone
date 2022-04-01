@@ -4,4 +4,10 @@ from django.shortcuts import render
 
 def home(request):
 
-    return render(request ,'home.html')
+    message = 'The home page'
+    return render(request ,'home.html' , {'message': message})
+
+
+def landing_page(request):
+    message = 'The Landing page'
+    return render(request ,'landing.html' , {'message': message})
