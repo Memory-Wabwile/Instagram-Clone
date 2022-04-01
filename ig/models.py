@@ -6,9 +6,9 @@ from django.utils import timezone
 
 class Profile(models.Model):
     profilePhoto = models.ImageField(upload_to = 'media/',default="") 
-    name = models.CharField(length=150)
-    username = models.CharField(length=150)
-    bio = models.CharField(length=150)
+    name = models.CharField( max_length=80)
+    username = models.CharField(max_length=150)
+    bio = models.CharField(max_length=150)
 
 
 class Comments(models.Model):
@@ -18,12 +18,13 @@ class Comments(models.Model):
 
 class Image(models.Model):    
     image = models.ImageField(upload_to = 'media/',default="")
-    imageName = models.CharField(length=60) 
-    imageCaption = models.TextField(length=60)
+    imageName = models.CharField(max_length=70) 
+    imageCaption = models.TextField(max_length=65)
     profile = models.ForeignKey(Profile,on_delete= models.CASCADE)
     likes= models.PositiveIntegerField(default = 0)
-    comments = models.ManyToManyField(Comments,on_delete= models.CASCADE,default=False)
+    comments = models.ManyToManyField(Comments,default=False)
     date = models.DateTimeField(default=timezone.now)
+    #follow = models.BooleanField(default=False)
 
 
 
