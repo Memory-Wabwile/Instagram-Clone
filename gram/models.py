@@ -6,7 +6,7 @@ from django.utils import timezone
 
 class Profile(models.Model):
     profilePhoto = models.ImageField(upload_to = 'media/',default="") 
-    name = models.CharField( max_length=80)
+    name = models.CharField( max_length=100)
     username = models.CharField(max_length=150)
     bio = models.CharField(max_length=150)
 

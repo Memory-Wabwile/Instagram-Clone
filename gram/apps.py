@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class IgConfig(AppConfig):
+class GramConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'ig'
+    name = 'gram'
