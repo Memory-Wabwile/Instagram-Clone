@@ -1,4 +1,6 @@
+from datetime import datetime
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -10,16 +12,18 @@ class Profile(models.Model):
 
 
 class Comments(models.Model):
-    comment=models.CharField() 
+    comments=models.TextField() 
+    date = models.DateTimeField(default=timezone.now)
 
 
 class Image(models.Model):    
     image = models.ImageField(upload_to = 'media/',default="")
     imageName = models.CharField(length=60) 
-    imageCaption = models.CharField(length=60)
+    imageCaption = models.TextField(length=60)
     profile = models.ForeignKey(Profile,on_delete= models.CASCADE)
     likes= models.PositiveIntegerField(default = 0)
     comments = models.ManyToManyField(Comments,on_delete= models.CASCADE,default=False)
+    date = models.DateTimeField(default=timezone.now)
 
 
 
