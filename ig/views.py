@@ -19,3 +19,7 @@ def details(request):
 def profile(request):
     message = 'The profile page'
     return render(request ,'profile.html' , {'message': message})
+
+def search(request):
+    message = 'The Search'
+    return render(request ,'search.html' , {'message': message})
