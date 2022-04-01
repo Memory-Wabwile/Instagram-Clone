@@ -11,3 +11,7 @@ def home(request):
 def landing_page(request):
     message = 'The Landing page'
     return render(request ,'landing.html' , {'message': message})
+
+def details(request):
+    message = 'The details page'
+    return render(request ,'details.html' , {'message': message})
