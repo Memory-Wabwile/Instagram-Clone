@@ -26,6 +26,29 @@ class Image(models.Model):
     date = models.DateTimeField(default=timezone.now)
     #follow = models.BooleanField(default=False)
 
+    def save_image(self):
+        self.save()
+
+    @classmethod
+    def querry_all(cls):
+        images = cls.objects.all()
+        return images
+
+    @classmethod
+    def querry_image(cls,id):
+        image=cls.objects.filter(id).get(id=id)
+        return image
+
+    @classmethod
+    def delete_image(cls,id):
+        cls.objects.filter(id).delete()
+
+
+    @classmethod
+    def update_caption(cls,id , update_caption):
+        cls.objects.filter(id).update(imageCaption = update_caption)
+
+    
 
 
 
