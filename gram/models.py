@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.db import models
 from django.utils import timezone
+from cloudinary.models import CloudinaryField
 
 # Create your models here.
 
@@ -25,6 +26,9 @@ class Profile(models.Model):
     def search(cls,id):
         profile = cls.objects.filter()
 
+    def __str__(self):
+        return self.name
+
 class Comments(models.Model):
     comments=models.TextField() 
     date = models.DateTimeField(default=timezone.now)
@@ -40,10 +44,13 @@ class Comments(models.Model):
     @classmethod
     def delete_comment(cls,id):
         cls.objects.filter(id).delete()
+
+    def __repr__(self):
+        return f'{self.comments}'
         
 
 class Image(models.Model):    
-    image = models.ImageField(upload_to = 'media/',default="")
+    image = CloudinaryField('image')
     imageName = models.CharField(max_length=70) 
     imageCaption = models.TextField(max_length=65)
     profile = models.ForeignKey(Profile,on_delete= models.CASCADE)
@@ -51,6 +58,11 @@ class Image(models.Model):
     comments = models.ManyToManyField(Comments)
     date = models.DateTimeField(default=timezone.now)
     
+    def __str__(self):
+        return self.image
+
+    # def __repr__(self):
+    #     return f'{self.comment}'
 
     def save_image(self):
         self.save()
@@ -73,6 +85,8 @@ class Image(models.Model):
     @classmethod
     def update_caption(cls,id , update_caption):
         cls.objects.filter(id).update(imageCaption = update_caption)
+
+
 
     
 
