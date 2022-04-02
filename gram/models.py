@@ -10,11 +10,37 @@ class Profile(models.Model):
     username = models.CharField(max_length=150)
     bio = models.CharField(max_length=150)
 
+    def save_profile(self):
+        self.save()
+
+    @classmethod
+    def delete_profile(cls,id):
+        cls.objects.filter(id).delete()
+
+    @classmethod
+    def update_profile(cls,id,update_profile):
+        cls.objects.filter(id).update(bio=update_profile)
+
+    @classmethod
+    def search(cls,id):
+        profile = cls.objects.filter()
 
 class Comments(models.Model):
     comments=models.TextField() 
     date = models.DateTimeField(default=timezone.now)
 
+    def save_comment(self):
+        self.save()
+
+    @classmethod
+    def get_comment(cls,id):
+        comments = cls.objects.filter(image_id=id).get()
+        return comments
+
+    @classmethod
+    def delete_comment(cls,id):
+        cls.objects.filter(id).delete()
+        
 
 class Image(models.Model):    
     image = models.ImageField(upload_to = 'media/',default="")
