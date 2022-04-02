@@ -48,9 +48,9 @@ class Image(models.Model):
     imageCaption = models.TextField(max_length=65)
     profile = models.ForeignKey(Profile,on_delete= models.CASCADE)
     likes= models.PositiveIntegerField(default = 0)
-    comments = models.ManyToManyField(Comments,default=False)
+    comments = models.ManyToManyField(Comments)
     date = models.DateTimeField(default=timezone.now)
-    #follow = models.BooleanField(default=False)
+    
 
     def save_image(self):
         self.save()
