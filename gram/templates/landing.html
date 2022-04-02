@@ -1,1 +1,10 @@
 {{message}}
+
+{% if images %}
+{% for image in images %}
+{{image.imageName}}
+{% endfor %}
+
+{%  else %}
+<h2>There are no posts</h2>
+{% endif %}

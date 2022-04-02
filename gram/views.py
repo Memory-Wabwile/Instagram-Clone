@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from gram.models import Image
+
 # Create your views here.
 
 def home(request):
@@ -9,8 +11,9 @@ def home(request):
 
 
 def landing_page(request):
+    images = Image.querry_all()
     message = 'The Landing page'
-    return render(request ,'landing.html' , {'message': message})
+    return render(request ,'landing.html' , {'message': message ,'image':images})
 
 def details(request):
     message = 'The details page'
