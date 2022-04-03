@@ -7,7 +7,7 @@ from cloudinary.models import CloudinaryField
 # Create your models here.
 
 class Profile(models.Model):
-    profilePhoto = models.ImageField(upload_to = 'media/',default="") 
+    profilePhoto = CloudinaryField('images/' , default='') 
     name = models.CharField( max_length=100)
     username = models.CharField(max_length=150)
     bio = models.CharField(max_length=150)
@@ -51,12 +51,12 @@ class Comments(models.Model):
         
 
 class Image(models.Model):    
-    image = CloudinaryField('image')
+    image = CloudinaryField('images/' , default='')
     imageName = models.CharField(max_length=70) 
     imageCaption = models.TextField(max_length=65)
     profile = models.ForeignKey(Profile,on_delete= models.CASCADE)
     likes= models.PositiveIntegerField(default = 0)
-    comments = models.ManyToManyField(Comments)
+    comments = models.ForeignKey(Comments,on_delete= models.CASCADE)
     date = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
@@ -70,6 +70,9 @@ class Image(models.Model):
 
     @classmethod
     def querry_all(cls):
+        '''
+        function that displays all posts
+        '''
         images = cls.objects.all()
         return images
 

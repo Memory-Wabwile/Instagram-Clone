@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'gram.apps.GramConfig',
     'bootstrap4',
+    'django_bootstrap_icons',
    
 ]
 
@@ -135,3 +136,5 @@ cloudinary.config(
   api_key = "578474228118622", 
   api_secret = "UKuzZSjctPEa9jcPtdeU5j2pqyg" 
 )
+
+LOGIN_REQUIRED_URL = 'landing'
