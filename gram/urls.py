@@ -6,6 +6,7 @@ urlpatterns = [
     path('landing/',views.landing_page,name='landing'),
     path('details/', views.details,name='details'),
     path('profile/', views.profile,name='profile'),
-    path('search/' ,views.search, name='search' )
+    path('search/' ,views.search, name='search' ),
+    path('posts/' , views.create_post, name = 'posts')
 
 ]
