@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.contrib.auth.decorators import login_required
+
 
 from gram.models import Image
 
@@ -9,7 +11,7 @@ def home(request):
     message = 'The home page'
     return render(request ,'home.html' , {'message': message})
 
-
+@login_required(login_url='/accounts/login/')
 def landing_page(request):
     images = Image.querry_all()
     message = 'The Landing page'
