@@ -13,7 +13,7 @@ def home(request):
 def landing_page(request):
     images = Image.querry_all()
     message = 'The Landing page'
-    return render(request ,'landing.html' , {'message': message ,'image':images})
+    return render(request ,'landing.html' , {'message': message ,'images':images})
 
 def details(request):
     message = 'The details page'

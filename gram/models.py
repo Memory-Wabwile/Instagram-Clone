@@ -1,6 +1,7 @@
 from datetime import datetime
 from django.db import models
 from django.utils import timezone
+import cloudinary
 from cloudinary.models import CloudinaryField
 
 # Create your models here.
@@ -45,8 +46,8 @@ class Comments(models.Model):
     def delete_comment(cls,id):
         cls.objects.filter(id).delete()
 
-    def __repr__(self):
-        return f'{self.comments}'
+    def __str__(self):
+        return self.comments
         
 
 class Image(models.Model):    
@@ -59,7 +60,7 @@ class Image(models.Model):
     date = models.DateTimeField(default=timezone.now)
     
     def __str__(self):
-        return self.image
+        return self.imageName
 
     # def __repr__(self):
     #     return f'{self.comment}'
