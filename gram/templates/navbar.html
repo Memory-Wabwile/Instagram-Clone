@@ -1,7 +1,8 @@
 {% load bootstrap4 %}
 {% load bootstrap_icons %}
+<div class="container">
 <nav style="color: black;" class="navbar navbar-inverse">
-    <div class="container">
+   <div class="container">
         {% if user.is_authenticated %}
         <div class="container-fluid">
             <div class="navbar-header">
@@ -15,7 +16,7 @@
                 <form class="navbar-form" role="search" action="">
 
                     <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Search by username" name="image">
+                        <input style="background-color: #efefef;" type="text" class="form-control" placeholder="Search by username" name="image">
                         <div class="input-group-btn">
                             <button style="border: 1px solid rgb(71, 69, 69);" class="btn btn-default"
                                 type="submit">{% bs_icon 'search' %}
@@ -26,9 +27,9 @@
                 </form>
             </div>
 
-            <div class="navbar-right">
-                <p><a href="{%url 'landing'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
-                <p><a href="{%url 'posts'%}">{% bs_icon 'plus-square' color='black' size='1.5em' %}</a></p>
+            <div style="display: flex; " class="navbar-right">
+                <p style="margin-right: 2em; padding-top: 5%;" ><a href="{%url 'landing'%}">{% bs_icon 'house-door-fill' color='black' size='1.5em' %}</a></p>
+                <p style="margin-right: 1em; padding-top: 5%;" ><a href="{%url 'posts'%}">{% bs_icon 'plus-square' color='black' size='1.5em' %}</a></p>
                 <ul style="list-style-type: none; margin:0 ; padding: 0;" >
                     <li  class="dropdown">
                         <a href="#" class="dropdown-toggle btn btn-default" data-toggle="dropdown" role="button"
@@ -54,5 +55,6 @@
                 </li>
             </div>
             {% endif %}
-        </div>
+        </div> 
 </nav>
+</div>

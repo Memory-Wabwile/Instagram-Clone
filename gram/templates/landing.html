@@ -5,25 +5,46 @@
 {% block content %}
 {{block.super}}
 
+<div style="background-color: #fafafa;" class="container-fluid">
+  <div class="container">
+    <div style="padding-top: 4%; padding-left: 9%; padding-right: 3%;" class="row">
+
+      <div class="col-md-9">
+        {% if images %}
+        {% for image in images %}
+        <div class="card" style="width:90% ; margin-bottom: 4%;">
+          <div class="card-header">
+            <img style="border-radius: 25px;" class="card-img-top" src="{{image.image.url}}" alt="Card image cap" height="100" >
+          </div>
+          <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" height="500">
+          <div class="card-body">
+            <div style="display: flex;" class="icons">
+              <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit">{% bs_icon 'heart' color='black' size='1.5em' %}</button>
+              <a href="{%url 'details'%}">{% bs_icon 'chat' color='black' size='1.5em' %}</a>
+            </div>
+            <p class="card-text"> Liked by {{image.likes}} others</p>
+            <h4>{{image.imageName}}</h4>
+            <h5 class="card-text">{{image.imageCaption}}</h5>
+
+            <p class="card-text">{{image.comments}}</p>
+            <p class="card-text">{{image.date}}</p>
+          </div>
+        </div>
 
 
-{% if images %}
-{% for image in images %}
-<div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap">
-    <div class="card-body">
-        <h2>{{image.imageName}}</h2>
-      <p class="card-text">{{image.imageCaption}}</p>
-      <p class="card-text">{{image.likes}}</p>
-      <p class="card-text">{{image.comments}}</p>
-      <p class="card-text">{{image.date}}</p>
+
+        {% endfor %}
+
+        {%  else %}
+        <h2>There are no posts</h2>
+        {% endif %}
+
+      </div>
+
+      <div style="padding-left: 0%;" class="col-md-3">
+        <h4>Suggestions For You</h4>
+      </div>
     </div>
   </div>
-
-{% endfor %}
-
-{%  else %}
-<h2>There are no posts</h2>
-{% endif %}
-
+</div>
 {%endblock%}
