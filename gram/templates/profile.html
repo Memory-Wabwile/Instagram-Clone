@@ -1,9 +1,10 @@
 {%extends 'base.html'%}
 {% load bootstrap4 %}
 {% load static %}
-{% block content %} 
+{% block content %}
 {{ block.super}}
-
+<div class="container-fluid">
+    {% for profile in profiles %}
     <div class="container mt-3">
         <div class="content-section">
             <div class="media">
@@ -11,18 +12,22 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-3">
-                            <img class="rounded-circle" src="{{ username.profile.profile_pic.url }}" height="150px" width="150px">
+                            <img class="rounded-circle" src="{{ profile.profile_pic.url }}" height="150px"
+                                width="150px">
                         </div>
                         <div class="col-md-6 mt-3">
                             <div class="media-body">
                                 <div class=""><span class="font-weight-bold name">{{ user.username }}</span>
-                                    <a class="btn btn-sm btn-outline-secondary ml-3 mr-3" data-toggle="modal" data-target=".bd-example-modal-md"><strong>Edit Profile</strong></a>
+                                    <a class="btn btn-sm btn-outline-secondary ml-3 mr-3" data-toggle="modal"
+                                        data-target=".bd-example-modal-md"><strong>Edit Profile</strong></a>
                                 </div>
-    
+
                                 <div class="post-details mt-3 mb-3">
                                     <span class="mr-5"><strong>{{images.count}}</strong> Posts</span>
-                                    <span class="mr-5"> <strong>{{ username.profile.followers.count }}</strong> followers</span>
-                                    <span class="mr-5"> <strong>{{ username.profile.following.count }}</strong> following</span>
+                                    <span class="mr-5"> <strong>{{ username.profile.followers.count }}</strong>
+                                        followers</span>
+                                    <span class="mr-5"> <strong>{{ username.profile.following.count }}</strong>
+                                        following</span>
                                 </div>
                                 <h5>{{ username.profile.name }}</h5>
                                 <p class="text-secondary">{{ username.profile.bio }}</p>
@@ -31,7 +36,8 @@
                     </div>
                 </div>
             </div>
-            <div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+            <div class="modal fade bd-example-modal-md" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+                aria-hidden="true">
                 <div class="modal-dialog modal-md ">
                     <div class="modal-content">
                         <form action="" method="post" enctype="multipart/form-data" class="mr-4 mt-4 ml-4 mb-4">
@@ -44,14 +50,16 @@
             </div>
         </div>
         <hr class="mt-4">
-            <div class="row">
-            {% for image in images %}                
-                <div class="col-sm-8 col-lg-3 mb-3 imgdisplay">
-                    <img src="{{image.image.url}}" alt=" " class="card-img photo" height="200">
-                    
-                </div>            
-            {% endfor %}
-        </div>
     </div>
+    {% endfor %}
+    <div class="row">
+        {% for image in images %}
+        <div class="col-sm-8 col-lg-3 mb-3 imgdisplay">
+            <img src="{{image.image.url}}" alt=" " class="card-img photo" height="200">
+
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {%endblock%}

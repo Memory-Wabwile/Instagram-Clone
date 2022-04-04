@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 
-from gram.models import Image
+from gram.models import Image, Profile
 
 # Create your views here.
 
@@ -24,8 +24,10 @@ def details(request):
     return render(request ,'details.html' , {'message': message})
 
 def profile(request):
-    message = 'The profile page'
-    return render(request ,'profile.html' , {'message': message})
+    # message = 'The profile page'
+    images=Image.objects.all()
+    profile = Profile.display_profile()
+    return render(request ,'profile.html' , {'images':images , 'profiles':profile})
 
 def create_post(request):
 
@@ -35,8 +37,8 @@ def search(request):
     return render(request ,'search.html' , {'message': message})
 
 @login_required(login_url='login')
-def like(request,id):
+def like(id):
     post = Image.objects.get(id=id)
-    post.likes += 1
+    post.like += 1
     post.save()
     return HttpResponseRedirect(reverse("landing"))

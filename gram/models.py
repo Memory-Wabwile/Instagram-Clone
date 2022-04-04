@@ -24,6 +24,11 @@ class Profile(models.Model):
         cls.objects.filter(id).update(bio=update_profile)
 
     @classmethod
+    def display_profile(cls):
+        profile = cls.objects.all()
+        return profile
+
+    @classmethod
     def search(cls,id):
         profile = cls.objects.filter()
 

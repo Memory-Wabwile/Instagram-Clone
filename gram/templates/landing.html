@@ -21,7 +21,7 @@
 
           <div class="card-body">
             <div style="display: flex;" class="icons">
-              <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit"><a href="">{% bs_icon 'heart' color='black' size='1.5em' %}{{image.likes.count}}</a></button>
+              <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit"><a href="#">{% bs_icon 'heart' color='black' size='1.5em' %}{{image.likes.count}}</a></button>
               <a href="{%url 'details'%}">{% bs_icon 'chat' color='black' size='1.5em' %}</a>
             </div>
             <p class="card-text"> Liked by {{image.likes.count}} others</p>
