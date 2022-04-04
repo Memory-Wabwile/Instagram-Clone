@@ -3,7 +3,7 @@
 {% load static %}
 {% block content %}
 {{ block.super}}
-<div class="container-fluid">
+<div class="container">
     {% for profile in profiles %}
     <div class="container mt-3">
         <div class="content-section">
@@ -29,7 +29,7 @@
                                     <span class="mr-5"> <strong>{{ username.profile.following.count }}</strong>
                                         following</span>
                                 </div>
-                                <h5>{{ username.profile.name }}</h5>
+                                <h5>{{ user.username }}</h5>
                                 <p class="text-secondary">{{ username.profile.bio }}</p>
                             </div>
                         </div>

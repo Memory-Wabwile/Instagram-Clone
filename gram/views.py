@@ -32,6 +32,7 @@ def profile(request):
 def create_post(request):
 
     return render(request, 'posts.html')
+    
 def search(request):
     message = 'The Search'
     return render(request ,'search.html' , {'message': message})
