@@ -1,9 +1,11 @@
-{%extends "django_registration/base.html"%} {% load bootstrap4 %} {% block content %}
-<div class="container">
-   <div class="row">
+{%extends "django_registration/base.html"%} 
+{% load bootstrap4 %} 
+{% block content %}
+<div style="background-color: #000; height: 120vh;" class="container-fluid">
+   <div  class="row">
        <!-- Empty div -->
        <div class="col-md-4"></div>
-       <div class="col-md-4">
+       <div style="  margin-top: 10%;  color: white; box-shadow:  0 0 5px #fff,0 0 10px #fff,0 0 15px #fff,0 0 20px #fff,0 0 25px #fff,0 0 30px #fff;"  class="col-md-4">
            {% if form.errors %}
            <p> Password or Username is incorrect </p>
            {% endif %}
