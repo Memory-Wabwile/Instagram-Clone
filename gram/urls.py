@@ -7,6 +7,7 @@ urlpatterns = [
     path('details/', views.details,name='details'),
     path('profile/', views.profile,name='profile'),
     path('search/' ,views.search, name='search' ),
-    path('posts/' , views.create_post, name = 'posts')
+    path('posts/' , views.create_post, name = 'posts'),
+    # path('like/<id>' , views.like , name='like'),
 
 ]

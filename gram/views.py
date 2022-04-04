@@ -1,6 +1,8 @@
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
+from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-
+from django.urls import reverse
 
 from gram.models import Image
 
@@ -31,3 +33,10 @@ def create_post(request):
 def search(request):
     message = 'The Search'
     return render(request ,'search.html' , {'message': message})
+
+@login_required(login_url='login')
+def like(request,id):
+    post = Image.objects.get(id=id)
+    post.likes += 1
+    post.save()
+    return HttpResponseRedirect(reverse("landing"))

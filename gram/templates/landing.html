@@ -14,16 +14,17 @@
         {% for image in images %}
         <div class="card" style="width:90% ; margin-bottom: 4%;">
           <div class="card-header">
-            <img style="border-radius: 25px;" class="card-img-top" src="{{image.profile.url}}" alt="Card image cap" height="100" >
+            <img class="rounded-circle" src="{{ username.profile.profile_pic.url }}" height="50px" width="50px">
+            <h4>{{ username.profile.username.name }}</h4>
           </div>
           <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" height="500">
 
           <div class="card-body">
             <div style="display: flex;" class="icons">
-              <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit">{% bs_icon 'heart' color='black' size='1.5em' %}</button>
+              <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit"><a href="">{% bs_icon 'heart' color='black' size='1.5em' %}{{image.likes.count}}</a></button>
               <a href="{%url 'details'%}">{% bs_icon 'chat' color='black' size='1.5em' %}</a>
             </div>
-            <p class="card-text"> Liked by {{image.likes}} others</p>
+            <p class="card-text"> Liked by {{image.likes.count}} others</p>
             <h4>{{image.imageName}}</h4>
             <h5 class="card-text">{{image.imageCaption}}</h5>
 
@@ -44,6 +45,20 @@
 
       <div style="padding-left: 0%;" class="col-md-3">
         <h4>Suggestions For You</h4>
+        {% for user in users %}
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-2 mr-3 mt-1 mb-2">
+                        <img class="rounded-circle" src="{{ username.profile.image.url }}" width="45px" height="45px">
+                    </div>
+                    <div class="col-md-6 mr-2 mt-2">
+                        <span><a href="{% url 'user_profile' username.username  %}">{{ user.username }}</a></span>
+                    </div>
+                    <div class="col-md-4">
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
       </div>
     </div>
   </div>
