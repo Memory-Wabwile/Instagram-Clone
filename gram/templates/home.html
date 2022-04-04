@@ -1,8 +1,12 @@
-{% extends 'base.html' %}
+
 {% load bootstrap4 %}
 {% load static %}
 {% block content %}
-{{block.super}}
+
+{% block styles %} 
+{% bootstrap_css %} 
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+{% endblock %}
 
 <div class="gloss">
     <h1>welcome</h1>
