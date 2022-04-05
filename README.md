@@ -23,6 +23,8 @@ Landing page design for Instagram clone
 <img src="homepage.jpeg" alt="">
 <img src="login.jpeg" alt="">
 <img src="signup.jpeg" alt="">
+<img src="readme1.jpeg" alt="">
+<img src="readme2.jpeg" alt="">
 
 ## Technologies Used
 <ul>Python 3.9</ul>
