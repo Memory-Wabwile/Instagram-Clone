@@ -1,9 +1,8 @@
 from django.http import HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
-
 from gram.models import Image, Profile
 
 # Create your views here.
@@ -30,8 +29,17 @@ def profile(request):
     return render(request ,'profile.html' , {'images':images , 'profiles':profile})
 
 def create_post(request):
-
-    return render(request, 'posts.html')
+    # if request.method == 'POST':
+    #     form = UploadForm(request.POST,request.FILES)
+    #     print(form.errors)
+    #     if form.is_valid():
+    #         post = form.save(commit=False)
+    #         post.user = request.user.profile
+    #         post.save()
+    #         return redirect('index')
+    # else:
+    #     form = UploadForm()
+    return render(request, 'posts.html' , )
     
 def search(request):
     message = 'The Search'

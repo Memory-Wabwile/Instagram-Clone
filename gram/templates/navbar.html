@@ -25,6 +25,26 @@
                     </div>
 
                 </form>
+
+            
+
+    
+                    <div class="row">
+    
+                        {% if image %} {% for image in images %}
+                        <div class=" text-center  ">
+                            <div class=" mb-4" style="margin-left: 21px; width: 52rem;">
+                                <h4 style="text-align:center;">IMAGE DETAILS</h4>
+                                <img src="{{image.image.url}}" alt="" srcset="" style="width:44rem ; ">
+                                <h4>Image Name: {{imgage.username}}</h4>
+                                <p>Caption: {{image.imageCaption}}</p>
+                                <h4>Posted by: {{imgage.name}}</h4>
+                                
+                            </div>
+                        </div>
+                        {% endfor %} {% endif %}
+                    </div>
+                </div>
             </div>
 
             <div style="display: flex; " class="navbar-right">

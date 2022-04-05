@@ -12,27 +12,59 @@
       <div class="col-md-9">
         {% if images %}
         {% for image in images %}
-        <div class="card" style="width:90% ; margin-bottom: 4%;">
-          <div class="card-header">
-            <img class="rounded-circle" src="{{ username.profile.profile_pic.url }}" height="50px" width="50px">
-            <h4>{{ username.profile.username.name }}</h4>
-          </div>
-          <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" height="500">
-
-          <div class="card-body">
-            <div style="display: flex;" class="icons">
-              <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit"><a href="#">{% bs_icon 'heart' color='black' size='1.5em' %}{{image.likes.count}}</a></button>
-              <a href="{%url 'details'%}">{% bs_icon 'chat' color='black' size='1.5em' %}</a>
+        <div class="main">
+          <div class="card" style="width:90% ; margin-bottom: 4%;">
+            <div class="card-header">
+              <img class="rounded-circle" src="{{ username.profile.profile_pic.url }}" height="50px" width="50px">
+              <h4>{{ username.profile.username.name }}</h4>
             </div>
-            <p class="card-text"> Liked by {{image.likes.count}} others</p>
-            <h4>{{image.imageName}}</h4>
-            <h5 class="card-text">{{image.imageCaption}}</h5>
+            <img class="card-img-top" src="{{image.image.url}}" data-toggle="modal" data-target="#{{image.id}}"  alt="Card image cap" height="500">
 
-            <p class="card-text">{{image.comments}}</p>
-            <p class="card-text">{{image.date}}</p>
+            <div class="card-body">
+              <div style="display: flex;" class="icons">
+                <button style="border: none; margin-right: 2%;" class="btn btn-default" type="submit"><a
+                    href="#">{% bs_icon 'heart' color='black' size='1.5em' %}{{image.likes.count}}</a></button>
+                <a href="" data-toggle="modal" data-target="#{{image.id}}" >{% bs_icon 'chat' color='black' size='1.5em' %}</a>
+              </div>
+              <p class="card-text"> Liked by {{image.likes.count}} others</p>
+              <h4>{{image.imageName}}</h4>
+              <h5 class="card-text">{{image.imageCaption}}</h5>
+
+              <p class="card-text">{{image.comments}}</p>
+              <p class="card-text">{{image.date}}</p>
+            </div>
           </div>
-        </div>
 
+          <div class="modal fade" id="{{image.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content modalcard">
+                <div class="modal-header">
+                  <h5 style="font-size: 2em;" class="modal-title text-center" id="imagetitle">{{image.name}}</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <img class="card-img-top" src="{{image.image.url}}" alt="Card image cap" height="500">
+                  <p class="card-text"> Liked by {{image.likes.count}} others</p>
+              <h4>{{image.imageName}}</h4>
+              <h5 class="card-text">{{image.imageCaption}}</h5>
+
+              <p class="card-text">{{image.comments}}</p>
+              <p class="card-text">{{image.date}}</p>
+            
+                </div>
+                <div class="modal-footer">
+                  <input class="form-control input-lg" type="text" value="{{image.comments}}" >
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="submit" class="btn btn-success " >Add comment</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
 
 
         {% endfor %}
@@ -46,19 +78,19 @@
       <div style="padding-left: 0%;" class="col-md-3">
         <h4>Suggestions For You</h4>
         {% for user in users %}
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-2 mr-3 mt-1 mb-2">
-                        <img class="rounded-circle" src="{{ username.profile.image.url }}" width="45px" height="45px">
-                    </div>
-                    <div class="col-md-6 mr-2 mt-2">
-                        <span><a href="{% url 'user_profile' username.username  %}">{{ user.username }}</a></span>
-                    </div>
-                    <div class="col-md-4">
-                    </div>
-                </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-2 mr-3 mt-1 mb-2">
+              <img class="rounded-circle" src="{{ username.image.image.url }}" width="45px" height="45px">
             </div>
-            {% endfor %}
+            <div class="col-md-6 mr-2 mt-2">
+              <span><a href="{% url 'profile' user.username  %}">{{ username.username }}</a></span>
+            </div>
+            <div class="col-md-4">
+            </div>
+          </div>
+        </div>
+        {% endfor %}
       </div>
     </div>
   </div>
