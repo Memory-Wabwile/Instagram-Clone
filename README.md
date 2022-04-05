@@ -8,7 +8,7 @@ https://github.com/Memory-Wabwile
 Instagram clone is an application created using Django. A user can see the posts made , comment , like a post and even create their own posts after loging in successfully.
 
 ## Live Site
-click on  to view the site
+click on https://memsinsta.herokuapp.com/ to view the site
 
 ## BDD
 1. A user is able to sign up then log in to access the application
@@ -36,7 +36,7 @@ Python Venv<br>
 
 ## Setup instructions
 <ul>
-<li>click on to clone this repository</li><br>
+<li>click on https://memsinsta.herokuapp.com/ to clone this repository</li><br>
 <li>open the terminal and type git clone</li> <br>
 <li>Navigate into the folder and install requirements using the command
 "cd instagram " <br>then "pip install -r requirements.txt" </li><br>
