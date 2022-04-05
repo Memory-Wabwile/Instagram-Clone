@@ -157,10 +157,16 @@ STATICFILES_DIRS = (
 
 
 
-cloudinary.config( 
-  cloud_name = "memory987651234", 
-  api_key = "578474228118622", 
-  api_secret = "UKuzZSjctPEa9jcPtdeU5j2pqyg" 
+# cloudinary.config( 
+#   cloud_name = "memory987651234", 
+#   api_key = "578474228118622", 
+#   api_secret = "UKuzZSjctPEa9jcPtdeU5j2pqyg" 
+# )
+cloudinary.config(
+    cloud_name=config('YOUR_CLOUD_NAME'),
+    api_key=config('YOUR_API_KEY'),
+    api_secret=config('YOUR_API_SECRET'),
+    secure=True
 )
 
 LOGIN_REQUIRED_URL = 'landing'
