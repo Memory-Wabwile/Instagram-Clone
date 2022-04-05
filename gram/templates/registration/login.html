@@ -20,7 +20,8 @@
                        {% csrf_token %} {% bootstrap_form form%}
  
                        <div class="form-group">
-                           <input style="border-radius: 25px; margin-bottom: 6%; margin-top: 3%; box-shadow: 0 0 3px #fff,0 0 6px #fff,0 0 9px #fff,0 0 12px #fff,0 0 18px #fff;" type="submit" class=" btn-sm" value="Login">
+                       
+                          <a   style="border-radius: 25px;color: white; margin-bottom: 6%; margin-top: 3%; box-shadow: 0 0 3px #fff,0 0 6px #fff,0 0 9px #fff,0 0 12px #fff,0 0 18px #fff;"  href="{% url 'landing' %}" class="btn"> Login</a>
                        </div>
  
                        <input type="hidden" name="next" value="{{next}}">
