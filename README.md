@@ -20,9 +20,9 @@ click on https://memsinsta.herokuapp.com/ to view the site
 
 ## Design
 Landing page design for Instagram clone
-<img src="/static/img/homepage.jpeg" alt="">
-<img src="/static/img/login.jpeg" alt="">
-<img src="/static/img/signup.jpeg" alt="">
+<img src="homepage.jpeg" alt="">
+<img src="login.jpeg" alt="">
+<img src="signup.jpeg" alt="">
 
 ## Technologies Used
 <ul>Python 3.9</ul>
